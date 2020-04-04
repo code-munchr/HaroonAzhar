@@ -4,6 +4,21 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
+    
+     if signed_in?
+       if !current_user.current_shex_id
+           current_user.current_shex_id=ShoppingExperience.create(user:current_user).id
+           current_user.save
+       else
+        if !session[:current_shex]
+          session[:current_shex]=[]
+        end
+     end
+    end
+    
+     
+
+     
     @items = Item.all
   end
 

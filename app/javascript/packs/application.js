@@ -7,21 +7,12 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-
+require("./mycart.js")
 require("./js/jquery-3.2.1.min.js")
 require("./js/popper.js")
 require("./js/bootstrap.min.js")
-require("./js/stellar.js")
-require("./vendors/lightbox/simpleLightbox.min.js")
-require("./vendors/nice-select/js/jquery.nice-select.min.js")
-require("./vendors/isotope/imagesloaded.pkgd.min.js")
-require("./vendors/isotope/isotope-min.js")
-require("./vendors/owl-carousel/owl.carousel.min.js")
-require("./js/jquery.ajaxchimp.min.js")
-require("./vendors/counter-up/jquery.waypoints.min.js")
-require("./vendors/counter-up/jquery.counterup.js")
-require("./js/mail-script.js")
-require("./js/theme.js")
+
+
 
 import 'bootstrap'
 import './src/application.scss'

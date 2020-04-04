@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_30_014414) do
+ActiveRecord::Schema.define(version: 2020_04_04_072438) do
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
@@ -41,9 +41,25 @@ ActiveRecord::Schema.define(version: 2020_03_30_014414) do
   create_table "shopping_experiences", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_shopping_experiences_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "current_shex_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "items", "categories"
   add_foreign_key "shex_items", "items"
   add_foreign_key "shex_items", "shopping_experiences"
+  add_foreign_key "shopping_experiences", "users"
 end

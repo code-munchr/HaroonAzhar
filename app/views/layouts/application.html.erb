@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>PortShop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="icon" href="img/favicon.png" type="image/png" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,7 +11,20 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body> 
+     <%= render 'layouts/partials/Navbar'%>
+     <% if notice %>
+     <p class="alert alert-success"><%= notice %></p>
+   <% end %>
+   <% if alert %>
+     <p class="alert alert-danger"><%= alert %></p>
+   <% end %>
+    
     <%= yield %>
+  
+<%= render 'layouts/partials/Footer' %>
+
   </body>
+
+  
 </html>
